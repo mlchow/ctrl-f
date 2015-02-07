@@ -18,6 +18,7 @@ function learnMore() {
 	var div = document.body.children[0];
 	var span = document.createElement('span');
 	span.innerHTML = search.value;
+	resetTerm(span);
 
 	var s1 = "http://www.w3schools.com/tags/tag_";
 	var s2 = span.innerHTML;
@@ -29,7 +30,7 @@ function learnMore() {
 // getTerm() determines the appropriate URL value and changes the 
 // span's innerHTML.
 // eg: <!--...--> will change the innerHTML to 'comment'
-function getTerm() {
+function resetTerm(span) {
 	var item = span.innerHTML;
 	if (item == "!--...--" || item == "<!--...-->") 
 		span.innerHTML = "comment";
@@ -40,7 +41,6 @@ function getTerm() {
 		item == "h5" ||
 		item == "h6")
 		span.innerHTML = "hn";
-	
 }
 
 var button = document.getElementById( "search-button" ); //store variable from .html doc, ID=search, into variable 'search'
