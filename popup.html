@@ -6,7 +6,13 @@
  -->
 <html>
   <head>
+
     <title>Ctrl-F++</title>
+    <script src="jquery-2.1.3.min.js"></script>
+  </head>
+  <body>
+    <div id="status"></div>
+    <img id="image-result" hidden>
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
@@ -21,19 +27,17 @@
       }
     </style>
     <h4>Search this page's source code:</h4>
-    <div id="search">
-    <form method="get" action="http://www.w3schools.com" target="_blank">
-    <div style="border:1px solid black;padding:3px;width:30em;">
 
-    <table border="0" cellpadding="0">
-    <tr><td>
-    <input type="text"   name="search-item" size="30"
-     maxlength="255" value=""<textarea placeholder="eg. h1, form"></textarea>
-    <input type="submit" value="Search"/>
-    </td></tr>
-    </table>
+    <div style="border:1px solid black;padding:3px;width:30em;">
+      <table border="0" cellpadding="0">
+        <tr><td>
+          <input type="text" id="search" name="search-item" size="30"
+           maxlength="255" value="" <textarea placeholder="eg. h1, form"></textarea>
+          <input type="submit" id="search-button" value="Search"/>
+        </td></tr>
+      </table>
     </div>
-    <h4><button type="button" onclick="find()">Learn More</button></h4>
+    <h4><button type="button" id="learn-more">Learn More</button></h4>
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -41,10 +45,9 @@
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
     <!--<script src="popup.js"></script>-->
-  </head>
-  <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
+
+    
+    <script src="test.js"></script>
   </body>
 </html>
 
