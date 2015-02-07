@@ -8,6 +8,9 @@
  * @param {function(string)} callback - called when the URL of the current tab
  *   is found.
  **/
+
+
+
 function getCurrentTabUrl(callback) {
   // Query filter to be passed to chrome.tabs.query - see
   // https://developer.chrome.com/extensions/tabs#method-query
@@ -116,3 +119,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+window.addEventListener('click',function(e){
+  if(e.target.href!==undefined){
+    chrome.tabs.create({url:e.target.href})
+  }
+})
