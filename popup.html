@@ -20,24 +20,29 @@
         max-width: 400px;
       }
     </style>
-    <h1>Search this page's source code:</h1>
+    <h4>Search this page's source code:</h4>
     <div id="search">
+
     <form method="get" action="http://www.google.com" target="_blank">
-    <div style="border:0px solid black;padding:2px;width:20em;">
+    <div style="border:1px solid black;padding:3px;width:30em;">
+
     <table border="0" cellpadding="0">
     <tr><td>
-    <input type="text"   name="q" size="25"
+    <input type="text"   name="search-item" size="30"
      maxlength="255" value=""<textarea placeholder="eg. h1, form"></textarea>
-    <input type="submit" value="Search"/></td></tr>
+    <input type="submit" value="Search"/>
+    </td></tr>
     </table>
     </div>
+    <h4><a href="http://www.w3schools.com">Learn More</a></h4>
+
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
-    <script src="popup.js"></script>
+    <!--<script src="popup.js"></script>-->
   </head>
   <body>
     <div id="status"></div>
