@@ -129,8 +129,4 @@ $(function() {
     $( "#tags" ).autocomplete({
       source: availableTags
     });
-<<<<<<< HEAD
   });
-=======
-  });
->>>>>>> origin/master
