@@ -1,8 +1,8 @@
 <!doctype html>
 <!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
+Ctrl-F++: browser action extension
+@author Lizzy Bradley 
+@author Marisa Chow (marisalchow@gmail.com)
  -->
 
 <html lang="en">
@@ -13,7 +13,6 @@
     <script src="jquery-2.1.3.js"></script>
     <script src="jquery-ui-1.11.2/jquery-ui.js"></script>
     <script src="autocomplete.js"></script>
-    
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
@@ -23,7 +22,6 @@
     <img id="image-result" hidden>
     <style>
       #status {
-        /* avoid an excessively wide status text */
         white-space: pre;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -33,6 +31,7 @@
     <img id="info-button" src="info.png" width="20px" height="20px">
     <h1><img src="spyglass.png" width="45px" height="45px">Ctrl-F++</h1>
 
+    <!-- Info button that links to GitHub -->
     <div id="info">
       <h4 id="greeting">Your tag is: </h4>
       <div id="term"></div>
@@ -40,14 +39,14 @@
     </div>
     <h2>Search this page's source code:</h2>
 
+    <!-- JQuery UI's Autocomplete widget -->
     <div class="ui-widget">
       <label for="tags"><h3>Tag: </label>
       <input id="tags" placeholder="eg. h1, form"></h3>
       <button class="pure-button pure-button-primary" type="button" id="search-button">Search</button>
       <button class="pure-button pure-button-primart" type="button" id="unselect-button">Unselect</button> 
-      
       <br>
-
+      
       <h3 align="right">Color picker:   
       <button style="float: right;" id="greenButton" class="button-green pure-button pure-button-active"></button>
       <button style="float: right;" id = "blueButton" class="button-blue pure-button pure-button-active"></button>
@@ -55,11 +54,12 @@
       <button style="float: right;" id = "redButton" class="button-red pure-button pure-button-active"></button></h3>
     </div>
     <br>
+    
+    <!-- Counts how many instances of specified tags exist. -->
     <div class="count" id="redCount"></div>  
     <div class="count" id="yellowCount"></div>
     <div class="count" id="blueCount"></div>
     <div class="count" id="greenCount"></div>
-
 
     <script src="popup.js"></script>
   </body>
