@@ -1,22 +1,25 @@
+var sel_btn       = document.getElementById( "search-button" );
+var unsel_btn     = document.getElementById( "unselect-button" );
+var learnmore_btn = document.getElementById("learn-more");
+
+var num_div   = $("#num");
+
+var select    = $("#search-button");
+var unselect  = $("#unselect-button");
+
+var learnmore = $( "#learn-more" );
+learnmore.hide();
+
+var unselect  = $( "#unselect-button" );
+unselect.hide();
 
 
-function highlight(query) {
-    console.log("highlight");
-    console.log(query);
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {query: query}, function(response) {
-        
-        // Do Something with the Response
-        if (response.success)
-          console.log("Success!");
-        else
-          console.log("Failure!");
+// function handler() {
+//   $("#scroll").scrollIntoView();
+// }
 
-        console.log("Number?: " + response.number);
-      
-      });
-    });
-  }
+// var scroll = document.getElementById("scroll");
+// scroll.addEventListener("click", handler);
 
 
 // findTags() will find and highlight the search term tag in the given
@@ -28,7 +31,69 @@ function findTags() {
   } else {
     highlight(search.value);
   }
-  
+}
+
+// Show Search button
+function prepareSelect() {
+  unselect.hide();
+  // select.show();
+  num_div.remove();
+
+  // Disable "Learn More" Button
+  learnmore.hide();
+  num_div.empty();
+  $("#search").val("");
+
+}
+
+// Show Unselect Button 
+function prepareUnselect() {
+  // select.hide();
+  unselect.show();
+
+  // Enable "Learn More" Button
+  learnmore.show();
+}
+
+// Send a message to content.js to apply styling to the selected content.
+
+function highlight(query) {
+  console.log("highlight: " + query);
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {query: query, task: "highlight", col: "red"}, function(response) {
+        prepareUnselect();
+
+        // Return the number of matches
+        num_div.append("<strong>"+response.number+" matches</strong>");
+      });
+    });
+  }
+
+function unhighlight() {
+      var query = findTags();
+      chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {query: query, task: "unhighlight"}, function(response) {
+          prepareSelect();
+      });
+    });
+}
+
+function isTag(query) {
+  if (query == "") 
+    return false;
+  else 
+    return true;
+}
+
+
+// When search is clicked. Determine whether to move to a successful state (and highlight)
+// or a failure state (error).
+function handleSearch() {
+  var query = findTags();
+  if (isTag(query))
+    highlight(query);
+  // else
+    // handleError(query);
 }
 
 // learnMore() opens a new tab to the w3schools URL appropriate to 
@@ -36,14 +101,14 @@ function findTags() {
 // in the format: http://www.w3schools.com/tags/tag_[name].asp 
 function learnMore() {
   var search = document.getElementById( "tags" );
-  if ($.inArray(search.value, availableTags) < 0) {
-    window.alert("Cannot find term");
-  } else {
+    if ($.inArray(search.value, availableTags) < 0) {
+      window.alert("Cannot find term");
+    } else {
     var div = document.body.children[0];
     var span = document.createElement('span');
     span.innerHTML = search.value;
     resetTerm(span);
-  
+
     var s1 = "http://www.w3schools.com/tags/tag_";
     var s2 = span.innerHTML;
     var s3 = ".asp";
@@ -56,7 +121,7 @@ function learnMore() {
 // span's innerHTML.
 // eg: <!--...--> will change the innerHTML to 'comment'
 function resetTerm(span) {
-  var item = span.innerHTML; 
+  var item = span.innerHTML;
   if (item == "!--...--" || item == "<!--...-->") 
     span.innerHTML = "comment";
   if (item == "h1" || 
@@ -68,8 +133,10 @@ function resetTerm(span) {
     span.innerHTML = "hn";
 }
 
-var button = document.getElementById( "search-button" ); //store variable from .html doc, ID=search, into variable 'search'
-button.addEventListener("click", findTags);
 
-var learnmore = document.getElementById( "learn-more" );
-learnmore.addEventListener("click", learnMore);
+
+learnmore_btn.addEventListener("click", learnMore);
+sel_btn.addEventListener("click", handleSearch);
+unsel_btn.addEventListener("click", unhighlight);
+
+
