@@ -1,6 +1,4 @@
-// defines HTML tags
-$(function() {
-    var availableTags = [
+var availableTags = [
       "!--...--",
       "!DOCTYPE",
       "a",
@@ -126,6 +124,9 @@ $(function() {
       "video",
       "wbr"
     ];
+
+// defines HTML tags
+$(function() {
     $( "#tags" ).autocomplete({
       source: availableTags
     });
