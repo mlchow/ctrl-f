@@ -13,54 +13,39 @@
     <script src="jquery-2.1.3.js"></script>
     <script src="jquery-ui-1.11.2/jquery-ui.js"></script>
     <script src="autocomplete.js"></script>
-    <link rel="stylesheet" href="style.css">
+    
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="status"></div>
     <img id="image-result" hidden>
     <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
       #status {
         /* avoid an excessively wide status text */
         white-space: pre;
         text-overflow: ellipsis;
         overflow: hidden;
-        max-width: 400px;
+        max-width: 500px;
       }
     </style>
-    <h4>Search this page's source code:</h4>
+    <h1>Ctrl-F++</h1>
+    <h2>Search this page's source code:</h2>
 
-    <div class="ui-widget" style="border:1px solid black; padding:3px; width:30em;">
-      <label for="tags">Tag: </label>
-      <input id="tags" placeholder="eg. h1, form">
-      <button type="button" id="search-button">Search</button>
-      <button type="button" id="learn-more">Learn More about this term</button>
+    <div class="ui-widget">
+      <label for="tags"><h3>Tag: </label>
+      <input id="tags" placeholder="eg. h1, form"></h3>
+      <button class="pure-button pure-button-primary" type="button" id="search-button">Search</button>
+      <button class="pure-button" type="button" id="learn-more">Learn More</button>
+      <br>
+
+      <h3 align="right">Color picker:   
+      <button style="float: right;" class="button-green pure-button pure-button-active"></button>
+      <button style="float: right;" class="button-blue pure-button pure-button-active"></button>
+      <button style="float: right;" class="button-orange pure-button pure-button-active"></button>
+      <button style="float: right;" class="button-red pure-button pure-button-active"></button></h3>
     </div>
-
-  <!--   <br>
-    <div style="border:1px solid black;padding:3px;width:30em;">
-      <table border="0" cellpadding="0">
-        <tr><td>
-          <input type="text" id="search" name="search-item" size="25"
-           maxlength="20" value="" <textarea placeholder="eg. h1, form"></textarea>
-          <input type="submit" id="search-button" value="Search"/>
-          <button type="button" id="learn-more">Learn More about this term</button>
-        </td></tr>
-      </table>
-    </div> -->
-    
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
-    <!--<script src="popup.js"></script>-->
-
     
     <script src="popup.js"></script>
   </body>
