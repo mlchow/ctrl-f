@@ -30,7 +30,7 @@ function findTags() {
 // the search term. 
 // in the format: http://www.w3schools.com/tags/tag_[name].asp 
 function learnMore() {
-  var search = document.getElementById( "search" );
+  var search = document.getElementById( "tags" );
   var div = document.body.children[0];
   var span = document.createElement('span');
   span.innerHTML = search.value;
