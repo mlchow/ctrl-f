@@ -47,7 +47,7 @@ function learnMore() {
 // span's innerHTML.
 // eg: <!--...--> will change the innerHTML to 'comment'
 function resetTerm(span) {
-  var item = span.innerHTML;
+  var item = span.innerHTML; 
   if (item == "!--...--" || item == "<!--...-->") 
     span.innerHTML = "comment";
   if (item == "h1" || 
