@@ -31,19 +31,20 @@
       }
     </style>
     <h1>Ctrl-F++</h1>
-    <h3>Search this page's source code:</h3>
+    <h2>Search this page's source code:</h2>
 
-    <div class="ui-widget" style="border:1px solid black; padding:3px; width:30em;">
-      <label for="tags">Tag: </label>
-      <input id="tags" placeholder="eg. h1, form">
+    <div class="ui-widget">
+      <label for="tags"><h3>Tag: </label>
+      <input id="tags" placeholder="eg. h1, form"></h3>
       <button class="pure-button pure-button-primary" type="button" id="search-button">Search</button>
       <button class="pure-button" type="button" id="learn-more">Learn More</button>
       <br>
-      <h3 text-align="right">Color picker: </h3>
-      <button class="button-red pure-button" size="10px"></button>
-      <button class="button-orange pure-button"></button>
-      <button class="button-blue pure-button"></button>
-      <button class="button-green pure-button"></button>
+
+      <h3 align="right">Color picker:   
+      <button style="float: right;" class="button-green pure-button pure-button-active"></button>
+      <button style="float: right;" class="button-blue pure-button pure-button-active"></button>
+      <button style="float: right;" class="button-orange pure-button pure-button-active"></button>
+      <button style="float: right;" class="button-red pure-button pure-button-active"></button></h3>
     </div>
     
     <script src="popup.js"></script>

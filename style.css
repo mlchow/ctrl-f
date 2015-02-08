@@ -8,11 +8,21 @@ h1 {
     font-size: 36px;
 	font-family: HalloSans;
 }
+h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 h3 {
+    display: inline;
     font-family: 'Source Sans Pro', sans-serif;
 }
 body {
+    width: 35em;
+    padding: 5px;
+    margin: 5px;
     font-family: 'Source Sans Pro', sans-serif;
+}
+button {
+    margin: 5px;
 }
 
 .button-red,
