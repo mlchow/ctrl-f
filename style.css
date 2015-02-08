@@ -1,40 +1,41 @@
-h4 {
+@font-face { 
+    font-family: HalloSans; 
+    src: url(Hallo-sans-light.otf);
+}
+h1 {
 	color: black;
 	text-align: center;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 36px;
+	font-family: HalloSans;
 }
-<div>
-    <style scoped>
+h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 
-        .button-success,
-        .button-error,
-        .button-warning,
-        .button-secondary {
-            color: white;
-            border-radius: 4px;
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-        }
+.button-red,
+.button-orange,
+.button-blue,
+.button-green {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
 
-        .button-success {
-            background: rgb(28, 184, 65); /* this is a green */
-        }
+.button-red {
+    background-color: rgb(255, 107, 107); 
+}
 
-        .button-error {
-            background: rgb(202, 60, 60); /* this is a maroon */
-        }
+.button-orange {
+    background: rgb(255, 174, 107); 
+}
 
-        .button-warning {
-            background: rgb(223, 117, 20); /* this is an orange */
-        }
+.button-blue {
+    background: rgb(78, 186, 186); 
+}
 
-        .button-secondary {
-            background: rgb(66, 184, 221); /* this is a light blue */
-        }
-
-    </style>
-
-    <button class="button-success pure-button">Success Button</button>
-    <button class="button-error pure-button">Error Button</button>
-    <button class="button-warning pure-button">Warning Button</button>
-    <button class="button-secondary pure-button">Secondary Button</button>
-</div>
+.button-green {
+    background: rgb(92, 221, 92); 
+}
