@@ -6,7 +6,7 @@ var isGreen  = false;
 var red    = "rgb(255,107,107)";
 var yellow = "rgb(255,174,107)";
 var blue   = "rgb(78,186,186)";
-var green  = "rgb(92.221,92)";
+var green  = "rgb(92,221,92)";
 
 var red_id    = "";
 var yellow_id = "";
