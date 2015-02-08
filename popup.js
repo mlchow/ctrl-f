@@ -13,6 +13,13 @@ learnmore.hide();
 var unselect  = $( "#unselect-button" );
 unselect.hide();
 
+var selectedColor = "red";
+
+var redButton = document.getElementById("redButton");
+var yellowButton = document.getElementById("yellowButton");
+var blueButton = document.getElementById("blueButton");
+var greenButton = document.getElementById("greenButton");
+
 
 // function handler() {
 //   $("#scroll").scrollIntoView();
@@ -61,7 +68,7 @@ function prepareUnselect() {
 function highlight(query) {
   console.log("highlight: " + query);
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {query: query, task: "highlight", col: "red"}, function(response) {
+      chrome.tabs.sendMessage(tabs[0].id, {query: query, task: "highlight", col: selectedColor}, function(response) {
         prepareUnselect();
 
         // Return the number of matches
@@ -134,7 +141,28 @@ function resetTerm(span) {
     span.innerHTML = "hn";
 }
 
+function handleRed() {
+  selectedColor = "red";
+}
 
+function handleYellow() {
+  selectedColor = "yellow";
+}
+
+function handleBlue() {
+  selectedColor = "blue";
+}
+
+function handleGreen() {
+
+  selectedColor = "green";
+  console.log(selectedColor);
+}
+
+redButton.addEventListener("click", handleRed);
+yellowButton.addEventListener("click", handleYellow);
+blueButton.addEventListener("click", handleBlue);
+greenButton.addEventListener("click", handleGreen);
 
 learnmore_btn.addEventListener("click", learnMore);
 sel_btn.addEventListener("click", findTags);
