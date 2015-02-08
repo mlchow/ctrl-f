@@ -22,7 +22,7 @@ function highlight(query) {
 // findTags() will find and highlight the search term tag in the given
 // source code. 
 function findTags() {
-  var search = document.getElementById( "search" );
+  var search = document.getElementById( "tags" );
   highlight(search.value);
 }
 
