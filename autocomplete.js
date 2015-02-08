@@ -1,3 +1,5 @@
+// all HTML tags from the reference at http://www.w3schools.com/tags/default.asp.
+// note that some tags are not supported in HTML5. 
 var availableTags = [
       "!--...--",
       "!DOCTYPE",
