@@ -45,12 +45,10 @@ chrome.runtime.onMessage.addListener(
                 $(green_id).each(function() {
                     $(this).css("background-color", "");
                 });
-                
             }
             $(tagName).each(function() {
                 $(this).css("background-color", green);
                 num++;
-                $(this).scrollIntoView();
             });
 
             isGreen = true;
