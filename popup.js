@@ -26,7 +26,8 @@ unselect.hide();
 // source code. 
 function findTags() {
   var search = document.getElementById( "tags" );
-  if ($.inArray(search.value, availableTags) < 0) {
+  if (search.value == "") return;
+  else if ($.inArray(search.value, availableTags) < 0) {
     window.alert("Cannot find term");
   } else {
     highlight(search.value);
@@ -70,7 +71,7 @@ function highlight(query) {
   }
 
 function unhighlight() {
-      var query = findTags();
+      var query = document.getElementById( "tags" ).value;
       chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {query: query, task: "unhighlight"}, function(response) {
           prepareSelect();
@@ -136,7 +137,7 @@ function resetTerm(span) {
 
 
 learnmore_btn.addEventListener("click", learnMore);
-sel_btn.addEventListener("click", handleSearch);
+sel_btn.addEventListener("click", findTags);
 unsel_btn.addEventListener("click", unhighlight);
 
 
