@@ -14,6 +14,11 @@
     "default_icon": "spyglass.png",
     "default_popup": "popup.html"
   },
+  "icons": {
+    "24": "spyglass.png",
+    "48": "spyglass.png",
+    "128": "spyglass.png"
+  },
   "permissions": [
     "activeTab",
     "tabs",
