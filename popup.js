@@ -26,7 +26,7 @@ function findTags() {
   highlight(search.value);
 }
 
-// learnMore() opens a new tab to the w3schools URL appropriate to 
+// learnMore() opens a new tab to the w3schools URL appropriate to n
 // the search term. 
 // in the format: http://www.w3schools.com/tags/tag_[name].asp 
 function learnMore() {
