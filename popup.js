@@ -20,6 +20,15 @@ var yellowButton = document.getElementById("yellowButton");
 var blueButton = document.getElementById("blueButton");
 var greenButton = document.getElementById("greenButton");
 
+var redTag = "";
+var yellowTag = "";
+var blueTag = "";
+var greenTag = "";
+
+var numColors = 0;
+
+var greeting = $("#greeting");
+
 
 // function handler() {
 //   $("#scroll").scrollIntoView();
@@ -43,15 +52,17 @@ function findTags() {
 
 // Show Search button
 function prepareSelect() {
-  unselect.hide();
-  // select.show();
-  num_div.remove();
+  if (numColors == 0) {
+    unselect.hide();
+    // select.show();
+    num_div.remove();
 
-  // Disable "Learn More" Button
-  learnmore.hide();
-  num_div.empty();
-  $("#search").val("");
-
+    // Disable "Learn More" Button
+    learnmore.hide();
+    greeting.hide();
+    num_div.empty();
+    $("#search").val("");
+  }
 }
 
 // Show Unselect Button 
@@ -61,6 +72,7 @@ function prepareUnselect() {
 
   // Enable "Learn More" Button
   learnmore.show();
+  greeting.show();
 }
 
 // Send a message to content.js to apply styling to the selected content.
@@ -71,19 +83,51 @@ function highlight(query) {
       chrome.tabs.sendMessage(tabs[0].id, {query: query, task: "highlight", col: selectedColor}, function(response) {
         prepareUnselect();
 
+        var str = "#" + selectedColor + "Button";
+        $(str).empty();
+        $("#term").empty();
+        $("#term").append("\u003c " + query + " \u003e");
+
+        // construct ID
+        var id = "#" + selectedColor + "Button";
+        $(id).append("<div>"+response.number+'</div>');
+        console.log(id);
+
         // Return the number of matches
-        num_div.append("<strong>"+response.number+" matches</strong>");
+        //num_div.append("<strong>"+response.number+" matches</strong>");
       });
     });
+    if (selectedColor == "red") redTag = query;
+    if (selectedColor == "yellow") yellowTag = query;
+    if (selectedColor == "blue") blueTag = query;
+    if (selectedColor == "green") greenTag = query;
+
+    numColors++;
+
   }
 
 function unhighlight() {
-      var query = document.getElementById( "tags" ).value;
+      var query = "";
+      var id = "#" + selectedColor + "Button";
+      $(id).empty();
+      if (selectedColor == "red") {query = redTag; redTag = "";}
+      if (selectedColor == "yellow") {query = yellowTag; yellowTag = "";}
+      if (selectedColor == "blue") {query = blueTag; blueTag = "";} 
+      if (selectedColor == "green") {query = greenTag; greenTag = "";}
+
+      $(".count").empty();
+      $("#term").empty();
+
       chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {query: query, task: "unhighlight"}, function(response) {
           prepareSelect();
+
       });
     });
+
+      numColors--;
+
+
 }
 
 function isTag(query) {
@@ -142,30 +186,81 @@ function resetTerm(span) {
 }
 
 function handleRed() {
+  
+  learnmore.show();
+  greeting.show();
   selectedColor = "red";
+  $("#redButton").css("background-color", "rgb(170, 57, 57)"); 
+  $("#yellowButton").css("background-color", "");
+  $("#blueButton").css("background-color", "");
+  $("#greenButton").css("background-color", "");
+
+  $("#term").empty();
+  if (redTag != "")
+    $("#term").append("\u003c " + redTag + " \u003e");
+  else { learnmore.hide(); greeting.hide(); }
+
 }
 
 function handleYellow() {
+  learnmore.show();
+  greeting.show();
   selectedColor = "yellow";
+  $("#yellowButton").css("background-color", "rgb(170, 108, 57)");
+  $("#redButton").css("background-color", "");
+  $("#blueButton").css("background-color", "");
+  $("#greenButton").css("background-color", "");
+
+  $("#term").empty();
+  if (yellowTag != "") 
+      $("#term").append("\u003c " + yellowTag + " \u003e");
+  else { learnmore.hide(); greeting.hide(); }
 }
 
 function handleBlue() {
+  learnmore.show();
+  greeting.show();
   selectedColor = "blue";
+  $("#blueButton").css("background-color", "rgb(34, 102, 102)");
+  $("#yellowButton").css("background-color", "");
+  $("#redButton").css("background-color", "");
+  $("#greenButton").css("background-color", "");
+
+  $("#term").empty();
+  if (blueTag != "") 
+    $("#term").append("\u003c " + blueTag + " \u003e");
+  else { learnmore.hide(); greeting.hide(); }
 }
 
 function handleGreen() {
-
+  learnmore.show();
+  greeting.show();
   selectedColor = "green";
-  console.log(selectedColor);
+  $("#greenButton").css("background-color", "rgb(45, 136, 45)");
+  $("#yellowButton").css("background-color", "");
+  $("#blueButton").css("background-color", "");
+  $("#redButton").css("background-color", "");
+
+  $("#term").empty();
+  if (greenTag != "")
+    $("#term").append("\u003c " + greenTag + " \u003e");
+  else { learnmore.hide(); greeting.hide(); }
 }
 
+function names() {
+  window.open("https://github.com/mlchow/ctrl-f");
+}
+
+$("#redButton").css("background-color", "rgb(170, 57, 57)"); 
 redButton.addEventListener("click", handleRed);
 yellowButton.addEventListener("click", handleYellow);
 blueButton.addEventListener("click", handleBlue);
 greenButton.addEventListener("click", handleGreen);
 
+var infobutton = document.getElementById("info-button");
+infobutton.addEventListener("click", names);
+
 learnmore_btn.addEventListener("click", learnMore);
 sel_btn.addEventListener("click", findTags);
 unsel_btn.addEventListener("click", unhighlight);
-
-
+greeting.hide();

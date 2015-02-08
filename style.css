@@ -21,6 +21,35 @@ body {
     margin: 5px;
     font-family: 'Source Sans Pro', sans-serif;
 }
+.count {
+    display: inline;
+    text-align: right;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+#greenCount {
+    position: absolute;
+    right: 20px;
+    bottom: 8px;
+    color: rgb(92, 221, 92); 
+}
+#blueCount {
+    position: absolute;
+    right: 62px;
+    bottom: 8px;
+    color: rgb(78, 186, 186);
+}
+#yellowCount {
+    position: absolute;
+    right: 102px;
+    bottom: 8px;
+    color: rgb(255, 174, 107);
+}
+#redCount {
+    position: absolute;
+    right: 142px;
+    bottom: 8px;
+    color: rgb(255, 107, 107); 
+}
 button {
     margin: 5px;
 }
@@ -48,4 +77,25 @@ button {
 
 .button-green {
     background: rgb(92, 221, 92); 
+}
+#info {
+    display: inline;
+}
+#term {
+    font-size: 12pt;
+    font-family: "Source Sans Pro", sans-serif;
+    display: inline;
+}
+#learn-more {
+    display: inline;
+}
+#greeting {
+    font-size: 12pt;
+    font-family: "Source Sans Pro", sans-serif;
+    display: inline;
+}
+#info-button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
 }

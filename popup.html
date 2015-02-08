@@ -30,7 +30,15 @@
         max-width: 500px;
       }
     </style>
-    <h1>Ctrl-F++</h1>
+    <img id="info-button" src="info.png" width="10px" height="10px">
+    <h6 id="names">Created by Lizzy Bradley and Marisa Chow at HackHers 2015 | <a href="https://github.com/mlchow/ctrl-f">Github</a></h6>
+    <h1><img src="spyglass.png" width="45px" height="45px">Ctrl-F++</h1>
+
+    <div id="info">
+      <h4 id="greeting">Your tag is: </h4>
+      <div id="term"></div>
+      <button class="pure-button" type="button" id="learn-more">Learn More</button>
+    </div>
     <h2>Search this page's source code:</h2>
 
     <div class="ui-widget">
@@ -38,7 +46,7 @@
       <input id="tags" placeholder="eg. h1, form"></h3>
       <button class="pure-button pure-button-primary" type="button" id="search-button">Search</button>
       <button class="pure-button pure-button-primart" type="button" id="unselect-button">Unselect</button> 
-      <button class="pure-button" type="button" id="learn-more">Learn More</button>
+      
       <br>
 
       <h3 align="right">Color picker:   
@@ -47,7 +55,13 @@
       <button style="float: right;" id = "yellowButton" class="button-orange pure-button pure-button-active"></button>
       <button style="float: right;" id = "redButton" class="button-red pure-button pure-button-active"></button></h3>
     </div>
-    
+    <br>
+    <div class="count" id="redCount"></div>  
+    <div class="count" id="yellowCount"></div>
+    <div class="count" id="blueCount"></div>
+    <div class="count" id="greenCount"></div>
+
+
     <script src="popup.js"></script>
   </body>
 </html>
