@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Ctrl-F++",
-  "description": "This extension searches webpage source code for useful examples",
+  "description": "A Chrome extension for students of HTML.",
   "version": "1.0",
 
  "content_scripts": [{
