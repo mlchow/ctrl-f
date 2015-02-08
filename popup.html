@@ -4,11 +4,15 @@
  "browser_action" field in manifest.json contains the "default_popup" key with
  value "popup.html".
  -->
- 
-<html>
+
+<html lang="en">
   <head>
+    <meta charset="utf-8">
     <title>Ctrl-F++</title>
-    <script src="jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.11.2/jquery-ui.css">
+    <script src="jquery-2.1.3.js"></script>
+    <script src="jquery-ui-1.11.2/jquery-ui.js"></script>
+    <script src="autocomplete.js"></script>
   </head>
   <body>
     <div id="status"></div>
@@ -27,7 +31,16 @@
       }
     </style>
     <h4>Search this page's source code:</h4>
+    
 
+    <div class="ui-widget" style="border:1px solid black; padding:3px; width:30em;">
+      <label for="tags">Tag: </label>
+      <input id="tags" placeholder="eg. h1, form">
+      <button type="button" id="search-button">Search</button>
+      <button type="button" id="learn-more">Learn More about this term</button>
+    </div>
+
+  <!--   <br>
     <div style="border:1px solid black;padding:3px;width:30em;">
       <table border="0" cellpadding="0">
         <tr><td>
@@ -37,7 +50,7 @@
           <button type="button" id="learn-more">Learn More about this term</button>
         </td></tr>
       </table>
-    </div>
+    </div> -->
     
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
@@ -48,7 +61,6 @@
     <!--<script src="popup.js"></script>-->
 
     
-    <script src="test.js"></script>
+    <script src="popup.js"></script>
   </body>
 </html>
-
