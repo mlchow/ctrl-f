@@ -5,4 +5,4 @@ Our mission is to move users beyond a place of head knowledge into a familiarity
 
 Find your tags in the wild. Explore. Discover. Engage. 
 
-Created by Lizzy Bradley and Marisa Chow at HackHers 2015.
+Created by Lizzy Bradley and Marisa Chow at HackHers 2015, where it won the Best Overall award.
